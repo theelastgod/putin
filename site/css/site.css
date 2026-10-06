@@ -1,0 +1,148 @@
+:root {
+  --ink: #0c0b09;
+  --panel: #16130f;
+  --gold: #e2c27a;
+  --cream: #f4efe4;
+  --muted: #b0a48e;
+  --crimson: #9d1c2b;
+  --line: rgba(226, 194, 122, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.45;
+}
+img, video { max-width: 100%; display: block; }
+a { color: var(--gold); text-decoration: none; }
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 28px;
+  background: rgba(12, 11, 9, 0.92);
+  border-bottom: 1px solid var(--line);
+}
+.mark { display: flex; align-items: center; gap: 10px; color: var(--gold); letter-spacing: 0.14em; font-weight: 700; }
+.mark img { width: 36px; height: 36px; border-radius: 50%; }
+nav { display: flex; flex-wrap: wrap; gap: 18px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; }
+.hero { position: relative; min-height: 88vh; display: grid; align-items: end; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,7,6,0.94) 0%, rgba(8,7,6,0.45) 32%, rgba(8,7,6,0.05) 68%);
+  pointer-events: none;
+}
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 100%);
+  padding: 18vh 7vw 8vh;
+}
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--gold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(60px, 15vw, 148px);
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+  color: var(--gold);
+  font-weight: 700;
+  max-width: 100%;
+}
+h2 { margin: 0 0 12px; font-size: clamp(36px, 5vw, 64px); font-weight: 700; }
+.lede { font-size: 22px; max-width: min(38rem, 100%); }
+.pairline { font-size: 28px; letter-spacing: 0.06em; }
+.pairline span { color: var(--gold); }
+.panel, .stills, .banners, #stickers, .reels, footer {
+  padding: 64px 7vw;
+}
+.panel {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 36px;
+  align-items: center;
+  background: var(--panel);
+}
+.panel p { color: var(--muted); font-size: 18px; }
+.panel figure, .grid figure { margin: 0; }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+.grid .wide { grid-column: span 2; }
+figcaption {
+  margin-top: 6px;
+  color: var(--muted);
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.banners img { margin: 0 0 16px; border: 1px solid var(--line); }
+.stickers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.stickers img {
+  background:
+    linear-gradient(45deg, #221c16 25%, transparent 25%),
+    linear-gradient(-45deg, #221c16 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #221c16 75%),
+    linear-gradient(-45deg, transparent 75%, #221c16 75%);
+  background-size: 18px 18px;
+  background-color: #100e0c;
+  border: 1px solid var(--line);
+}
+.reel-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 0.7fr;
+  gap: 14px;
+  align-items: start;
+}
+video { width: 100%; background: #000; }
+footer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+footer img { width: 48px; height: 48px; border-radius: 50%; }
+footer p { margin: 0; max-width: 40rem; }
+@media (max-width: 800px) {
+  .top { padding: 10px 12px; flex-wrap: wrap; }
+  nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    gap: 4px;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+  nav a { text-align: center; }
+  h1 { font-size: 16vw; }
+  .lede { font-size: 17px; }
+  .hero-copy { padding: 22vh 16px 36px; max-width: 100%; }
+  .panel, .grid, .stickers, .reel-grid { grid-template-columns: 1fr; }
+  .grid .wide { grid-column: auto; }
+  .panel, .stills, .banners, #stickers, .reels, footer { padding: 40px 16px; }
+  .lede { font-size: 18px; }
+}
